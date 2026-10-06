@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NovaAuth — Dashboard</title>
+    <title>AresX — Dashboard</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,183 +19,99 @@
 
 <body>
 
-    <!-- BACKGROUND -->
-
+    <!-- Background -->
     <div class="background">
         <div class="orb orb-one"></div>
         <div class="orb orb-two"></div>
     </div>
 
-
-    <!-- =========================================
-         HAMBURGER BUTTON
-    ========================================== -->
-
-    <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="Open dashboard menu"
-        aria-expanded="false"
-    >
+    <!-- Menu Button -->
+    <button class="menu-button" id="menuButton" type="button">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
+    <!-- Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- =========================================
-         SIDEBAR
-    ========================================== -->
-
+    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
 
-        <!-- LOGO -->
-
+        <!-- Logo -->
         <div class="logo">
 
             <div class="logo-icon">
-                N
+                <img src="image/logo_bg.jpg" alt="AresX">
             </div>
 
-            <div>
-                <strong>NovaAuth</strong>
+            <div class="logo-text">
+                <strong>AresX</strong>
                 <span>Dashboard</span>
             </div>
 
         </div>
 
-
-        <!-- NAVIGATION -->
-
+        <!-- Navigation -->
         <nav>
 
-            <button
-                class="nav-item active"
-                data-page="overview"
-                type="button"
-            >
+            <button class="nav-item active" data-page="overview" type="button">
                 <span>⌂</span>
-                <span>Overview</span>
+                <span>Home</span>
             </button>
 
-
-            <button
-                class="nav-item"
-                data-page="analytics"
-                type="button"
-            >
+            <button class="nav-item" data-page="system" type="button">
                 <span>◉</span>
-                <span>Analytics</span>
+                <span>Online System</span>
             </button>
 
-
-            <button
-                class="nav-item"
-                data-page="projects"
-                type="button"
-            >
+            <button class="nav-item" data-page="lib" type="button">
                 <span>▣</span>
-                <span>Projects</span>
+                <span>Online Lib</span>
             </button>
 
-
-            <button
-                class="nav-item"
-                data-page="settings"
-                type="button"
-            >
+            <button class="nav-item" data-page="settings" type="button">
                 <span>⚙</span>
                 <span>Settings</span>
             </button>
 
         </nav>
 
-
-        <!-- LOGOUT -->
-
-        <button
-            class="logout-button"
-            id="logoutButton"
-            type="button"
-        >
+        <!-- Logout -->
+        <button class="logout-button" id="logoutButton" type="button">
             <span>↪</span>
-            <span>Sign out</span>
+            <span>Logout</span>
         </button>
 
     </aside>
 
 
-    <!-- =========================================
-         DARK OVERLAY
-    ========================================== -->
+    <!-- Main -->
+    <main class="main" id="mainContent">
 
-    <div
-        class="menu-overlay"
-        id="menuOverlay"
-    ></div>
-
-
-    <!-- =========================================
-         MAIN DASHBOARD
-    ========================================== -->
-
-    <main
-        class="main"
-        id="mainContent"
-    >
-
-
-        <!-- =====================================
-             OVERVIEW
-        ====================================== -->
-
-        <section
-            class="page-section active"
-            id="overviewPage"
-        >
-
-            <!-- TOP BAR -->
+        <!-- HOME -->
+        <section class="page-section active" id="overviewPage">
 
             <header class="topbar">
 
                 <div>
-
-                    <p class="eyebrow">
-                        OVERVIEW
-                    </p>
+                    <p class="eyebrow">OVERVIEW</p>
 
                     <h1>
                         Welcome back,
-                        <span id="userName">
-                            User
-                        </span>
+                        <span id="userName">User</span>
                     </h1>
-
                 </div>
-
-
-                <!-- PROFILE -->
 
                 <div class="profile">
 
-                    <div
-                        class="avatar"
-                        id="userAvatar"
-                    >
+                    <div class="avatar" id="userAvatar">
                         U
                     </div>
 
                     <div>
-
-                        <strong id="profileName">
-                            User
-                        </strong>
-
-                        <span id="profileEmail">
-                            user@example.com
-                        </span>
-
+                        <strong id="profileName">User</strong>
+                        <span id="profileEmail">user@example.com</span>
                     </div>
 
                 </div>
@@ -204,10 +119,7 @@
             </header>
 
 
-            <!-- =================================
-                 STAT CARDS
-            ================================== -->
-
+            <!-- Stats -->
             <section class="stats">
 
                 <div class="stat-card">
@@ -217,19 +129,9 @@
                     </div>
 
                     <div>
-
-                        <p>
-                            Total Projects
-                        </p>
-
-                        <h2>
-                            24
-                        </h2>
-
-                        <small class="positive">
-                            +12% this month
-                        </small>
-
+                        <p>Total Projects</p>
+                        <h2>24</h2>
+                        <small class="positive">+12% this month</small>
                     </div>
 
                 </div>
@@ -242,19 +144,9 @@
                     </div>
 
                     <div>
-
-                        <p>
-                            Active Sessions
-                        </p>
-
-                        <h2>
-                            08
-                        </h2>
-
-                        <small class="positive">
-                            +4.8% this week
-                        </small>
-
+                        <p>Active Sessions</p>
+                        <h2>08</h2>
+                        <small class="positive">+4.8% this week</small>
                     </div>
 
                 </div>
@@ -267,19 +159,9 @@
                     </div>
 
                     <div>
-
-                        <p>
-                            Success Rate
-                        </p>
-
-                        <h2>
-                            98.4%
-                        </h2>
-
-                        <small class="positive">
-                            +2.1% this month
-                        </small>
-
+                        <p>Success Rate</p>
+                        <h2>98.4%</h2>
+                        <small class="positive">+2.1% this month</small>
                     </div>
 
                 </div>
@@ -292,19 +174,9 @@
                     </div>
 
                     <div>
-
-                        <p>
-                            Account Status
-                        </p>
-
-                        <h2>
-                            Active
-                        </h2>
-
-                        <small class="positive">
-                            Everything looks good
-                        </small>
-
+                        <p>Account Status</p>
+                        <h2>Active</h2>
+                        <small class="positive">Everything looks good</small>
                     </div>
 
                 </div>
@@ -312,37 +184,20 @@
             </section>
 
 
-            <!-- =================================
-                 DASHBOARD CONTENT
-            ================================== -->
-
+            <!-- Dashboard Grid -->
             <section class="dashboard-grid">
 
-
-                <!-- RECENT ACTIVITY -->
-
+                <!-- Activity -->
                 <div class="dashboard-card">
 
                     <div class="card-header">
 
                         <div>
-
-                            <h3>
-                                Recent activity
-                            </h3>
-
-                            <p>
-                                Your latest account activity.
-                            </p>
-
+                            <h3>Recent activity</h3>
+                            <p>Your latest account activity.</p>
                         </div>
 
-
-                        <button
-                            class="small-button"
-                            id="viewAllButton"
-                            type="button"
-                        >
+                        <button class="small-button" type="button">
                             View all
                         </button>
 
@@ -351,7 +206,6 @@
 
                     <div class="activity-list">
 
-
                         <div class="activity">
 
                             <div class="activity-icon purple">
@@ -359,15 +213,8 @@
                             </div>
 
                             <div>
-
-                                <strong>
-                                    Successful login
-                                </strong>
-
-                                <span>
-                                    Just now
-                                </span>
-
+                                <strong>Successful login</strong>
+                                <span>Just now</span>
                             </div>
 
                         </div>
@@ -380,15 +227,8 @@
                             </div>
 
                             <div>
-
-                                <strong>
-                                    Account created
-                                </strong>
-
-                                <span>
-                                    Today
-                                </span>
-
+                                <strong>Account created</strong>
+                                <span>Today</span>
                             </div>
 
                         </div>
@@ -401,15 +241,8 @@
                             </div>
 
                             <div>
-
-                                <strong>
-                                    Security verification
-                                </strong>
-
-                                <span>
-                                    Today
-                                </span>
-
+                                <strong>Security verification</strong>
+                                <span>Today</span>
                             </div>
 
                         </div>
@@ -422,41 +255,25 @@
                             </div>
 
                             <div>
-
-                                <strong>
-                                    Profile updated
-                                </strong>
-
-                                <span>
-                                    Yesterday
-                                </span>
-
+                                <strong>Profile updated</strong>
+                                <span>Yesterday</span>
                             </div>
 
                         </div>
-
 
                     </div>
 
                 </div>
 
 
-                <!-- ACCOUNT -->
-
+                <!-- Account -->
                 <div class="dashboard-card">
 
                     <div class="card-header">
 
                         <div>
-
-                            <h3>
-                                Account
-                            </h3>
-
-                            <p>
-                                Your account information.
-                            </p>
-
+                            <h3>Account</h3>
+                            <p>Your account information.</p>
                         </div>
 
                     </div>
@@ -464,23 +281,15 @@
 
                     <div class="account-profile">
 
-                        <div
-                            class="large-avatar"
-                            id="largeAvatar"
-                        >
+                        <div class="large-avatar" id="largeAvatar">
                             U
                         </div>
 
-
-                        <h3 id="accountName">
-                            User
-                        </h3>
-
+                        <h3 id="accountName">User</h3>
 
                         <p id="accountEmail">
                             user@example.com
                         </p>
-
 
                         <span class="status">
                             ● Active account
@@ -489,11 +298,7 @@
                     </div>
 
 
-                    <button
-                        class="edit-button"
-                        id="editProfileButton"
-                        type="button"
-                    >
+                    <button class="edit-button" type="button">
                         Edit profile
                     </button>
 
@@ -502,16 +307,13 @@
             </section>
 
 
-            <!-- =================================
-                 WELCOME BANNER
-            ================================== -->
-
+            <!-- Banner -->
             <section class="welcome-banner">
 
                 <div>
 
                     <span class="banner-label">
-                        NOVAAUTH
+                        ARESX
                     </span>
 
                     <h2>
@@ -532,92 +334,81 @@
         </section>
 
 
-        <!-- =========================================
-             ANALYTICS
-        ========================================== -->
-
-        <section
-            class="page-section"
-            id="analyticsPage"
-        >
+        <!-- ONLINE SYSTEM -->
+        <section class="page-section" id="systemPage">
 
             <div class="page-heading">
 
                 <p class="eyebrow">
-                    ANALYTICS
+                    ADMIN
                 </p>
 
                 <h1>
-                    Analytics
+                    Online System
                 </h1>
 
                 <p>
-                    Monitor your account performance and activity.
+                    Monitor and manage your online system.
                 </p>
 
             </div>
 
 
-            <div class="analytics-grid">
+            <div class="system-grid">
 
+                <div class="system-card">
 
-                <!-- CHART -->
-
-                <div class="dashboard-card chart-card">
-
-                    <div class="card-header">
-
-                        <div>
-
-                            <h3>
-                                Activity overview
-                            </h3>
-
-                            <p>
-                                Your activity during the week.
-                            </p>
-
-                        </div>
-
+                    <div class="system-icon green">
+                        ●
                     </div>
 
+                    <h3>System Online</h3>
 
-                    <div class="fake-chart">
+                    <p>
+                        All systems are currently operational.
+                    </p>
 
-                        <div style="height:35%"></div>
-
-                        <div style="height:55%"></div>
-
-                        <div style="height:42%"></div>
-
-                        <div style="height:75%"></div>
-
-                        <div style="height:60%"></div>
-
-                        <div style="height:88%"></div>
-
-                        <div style="height:70%"></div>
-
-                    </div>
+                    <span class="online-status">
+                        Online
+                    </span>
 
                 </div>
 
 
-                <!-- PERFORMANCE -->
+                <div class="system-card">
 
-                <div class="dashboard-card">
-
-                    <h3>
-                        Performance
-                    </h3>
-
-                    <div class="performance-number">
-                        98.4%
+                    <div class="system-icon blue">
+                        ◉
                     </div>
 
-                    <p class="muted-text">
-                        Your account is performing excellently.
+                    <h3>Active Users</h3>
+
+                    <p>
+                        Users currently connected to the system.
                     </p>
+
+                    <strong class="system-number">
+                        128
+                    </strong>
+
+                </div>
+
+
+                <div class="system-card">
+
+                    <div class="system-icon purple">
+                        ⚡
+                    </div>
+
+                    <h3>System Performance</h3>
+
+                    <p>
+                        Current system performance.
+                    </p>
+
+                    <strong class="system-number">
+                        98.4%
+                    </strong>
 
                 </div>
 
@@ -626,100 +417,81 @@
         </section>
 
 
-        <!-- =========================================
-             PROJECTS
-        ========================================== -->
-
-        <section
-            class="page-section"
-            id="projectsPage"
-        >
+        <!-- ONLINE LIB -->
+        <section class="page-section" id="libPage">
 
             <div class="page-heading">
 
                 <p class="eyebrow">
-                    PROJECTS
+                    ADMIN
                 </p>
 
                 <h1>
-                    Your Projects
+                    Online Lib
                 </h1>
 
                 <p>
-                    Manage all your projects from one place.
+                    Access your available online library.
                 </p>
 
             </div>
 
 
-            <div class="projects-grid">
+            <div class="library-grid">
 
+                <div class="library-card">
 
-                <!-- PROJECT 1 -->
-
-                <div class="project-card">
-
-                    <div class="project-icon purple">
+                    <div class="library-icon purple">
                         N
                     </div>
 
-                    <h3>
-                        Nova Website
-                    </h3>
+                    <h3>Resources</h3>
 
                     <p>
-                        Authentication dashboard project.
+                        Browse available resources and files.
                     </p>
 
-                    <span class="project-status">
-                        Active
-                    </span>
+                    <button class="small-button">
+                        Open
+                    </button>
 
                 </div>
 
 
-                <!-- PROJECT 2 -->
+                <div class="library-card">
 
-                <div class="project-card">
-
-                    <div class="project-icon blue">
-                        A
+                    <div class="library-icon blue">
+                        C
                     </div>
 
-                    <h3>
-                        Analytics App
-                    </h3>
+                    <h3>Collections</h3>
 
                     <p>
-                        Business analytics project.
+                        Manage your online collections.
                     </p>
 
-                    <span class="project-status">
-                        Active
-                    </span>
+                    <button class="small-button">
+                        Open
+                    </button>
 
                 </div>
 
 
-                <!-- PROJECT 3 -->
+                <div class="library-card">
 
-                <div class="project-card">
-
-                    <div class="project-icon green">
-                        S
+                    <div class="library-icon green">
+                        ✓
                     </div>
 
-                    <h3>
-                        Security System
-                    </h3>
+                    <h3>Downloads</h3>
 
                     <p>
-                        Secure authentication system.
+                        View your available downloads.
                     </p>
 
-                    <span class="project-status">
-                        Complete
-                    </span>
+                    <button class="small-button">
+                        Open
+                    </button>
 
                 </div>
 
@@ -728,14 +500,8 @@
         </section>
 
 
-        <!-- =========================================
-             SETTINGS
-        ========================================== -->
-
-        <section
-            class="page-section"
-            id="settingsPage"
-        >
+        <!-- SETTINGS -->
+        <section class="page-section" id="settingsPage">
 
             <div class="page-heading">
 
@@ -756,57 +522,30 @@
 
             <div class="settings-card dashboard-card">
 
-
-                <!-- ACCOUNT INFORMATION -->
-
                 <div class="setting-row">
 
                     <div>
-
-                        <h3>
-                            Account information
-                        </h3>
-
-                        <p>
-                            Update your personal information.
-                        </p>
-
+                        <h3>Account information</h3>
+                        <p>Update your personal information.</p>
                     </div>
 
-
-                    <button
-                        class="small-button"
-                        type="button"
-                    >
+                    <button class="small-button" type="button">
                         Edit
                     </button>
 
                 </div>
 
 
-                <!-- EMAIL NOTIFICATIONS -->
-
                 <div class="setting-row">
 
                     <div>
-
-                        <h3>
-                            Email notifications
-                        </h3>
-
-                        <p>
-                            Manage your notification preferences.
-                        </p>
-
+                        <h3>Email notifications</h3>
+                        <p>Manage your notification preferences.</p>
                     </div>
-
 
                     <label class="switch">
 
-                        <input
-                            type="checkbox"
-                            checked
-                        >
+                        <input type="checkbox" checked>
 
                         <span></span>
 
@@ -815,22 +554,12 @@
                 </div>
 
 
-                <!-- SECURITY -->
-
                 <div class="setting-row">
 
                     <div>
-
-                        <h3>
-                            Security
-                        </h3>
-
-                        <p>
-                            Your account security is enabled.
-                        </p>
-
+                        <h3>Security</h3>
+                        <p>Your account security is enabled.</p>
                     </div>
-
 
                     <span class="security-status">
                         Protected
@@ -843,21 +572,14 @@
         </section>
 
 
-        <!-- FOOTER -->
-
         <footer>
-            © 2026 NovaAuth. All rights reserved.
+            © 2026 AresX. All rights reserved.
         </footer>
 
     </main>
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
-
     <script src="js/dashboard.js"></script>
 
 </body>
-
 </html>
