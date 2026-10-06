@@ -6,580 +6,934 @@
 
     <title>AresX — Dashboard</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
 
-    <link rel="stylesheet" href="css/dashboard.css">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+
+
+<link rel="stylesheet" href="css/dashboard.css">
+
 </head>
 
 <body>
 
-    <!-- Background -->
     <div class="background">
-        <div class="orb orb-one"></div>
-        <div class="orb orb-two"></div>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+</div>
+
+<!-- MENU BUTTON -->
+<!-- Menu Button -->
+<button class="menu-button" id="menuButton" type="button" aria-label="Open dashboard menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<!-- Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+
+    <!-- Logo -->
+    <div class="logo">
+
+        <div class="logo-icon">
+            <img src="image/logo_bg.jpg" alt="AresX">
+        </div>
+
+        <div class="logo-text">
+            <strong>AresX</strong>
+            <span>Dashboard</span>
+        </div>
+
     </div>
 
-    <!-- Menu Button -->
-    <button class="menu-button" id="menuButton" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
 
-    <!-- Overlay -->
-    <div class="menu-overlay" id="menuOverlay"></div>
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
 
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
+        <button class="nav-item" data-page="overview" type="button">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </button>
 
-        <!-- Logo -->
-        <div class="logo">
+        <button class="nav-item" data-page="system" type="button">
+            <i class="fa-solid fa-server"></i>
+            <span>Online System</span>
+        </button>
 
-            <div class="logo-icon">
-                <img src="image/logo_bg.jpg" alt="AresX">
+        <button class="nav-item" data-page="lib" type="button">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Online Lib</span>
+        </button>
+
+        <button class="nav-item" data-page="settings" type="button">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </button>
+
+        <button class="nav-item" data-page="keygen" type="button">
+            <i class="fa-solid fa-key"></i>
+            <span>Manage Keygen Links</span>
+        </button>
+
+
+        <!-- Admin -->
+        <div class="nav-section-title">
+            <span>ADMIN</span>
+        </div>
+
+
+        <button class="nav-item" data-page="gamesys" type="button">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>Online System</span>
+        </button>
+
+        <button class="nav-item" data-page="onlinelib" type="button">
+            <i class="fa-solid fa-cloud"></i>
+            <span>Online LIB</span>
+        </button>
+
+        <button class="nav-item" data-page="hacking" type="button">
+            <i class="fa-solid fa-user-shield"></i>
+            <span>Manage Hacking Attempt</span>
+        </button>
+
+        <button class="nav-item" data-page="private" type="button">
+            <i class="fa-solid fa-lock"></i>
+            <span>Private Dashboard</span>
+        </button>
+
+        <button class="nav-item" data-page="users" type="button">
+            <i class="fa-solid fa-users"></i>
+            <span>Manage Users</span>
+        </button>
+
+        <button class="nav-item" data-page="referral" type="button">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>Create Referral</span>
+        </button>
+
+    </nav>
+
+
+    <!-- Logout - LAST ROW -->
+    <div class="sidebar-bottom">
+
+        <button class="logout-button" id="logoutButton" type="button">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>Logout</span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+<main class="main" id="mainContent">
+
+    <!-- =========================
+         HOME
+    ========================== -->
+    <section class="page-section active" id="overviewPage">
+
+        <header class="topbar">
+
+            <div>
+                <p class="eyebrow">OVERVIEW</p>
+
+                <h1>
+                    Welcome back,
+                    <span id="userName">User</span>
+                </h1>
             </div>
 
-            <div class="logo-text">
-                <strong>AresX</strong>
-                <span>Dashboard</span>
+            <div class="profile">
+
+                <div class="avatar" id="userAvatar">
+                    U
+                </div>
+
+                <div>
+                    <strong id="profileName">
+                        User
+                    </strong>
+
+                    <span id="profileEmail">
+                        user@example.com
+                    </span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- STATS -->
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    ◈
+                </div>
+
+                <div>
+                    <p>Total Projects</p>
+                    <h2>24</h2>
+                    <small class="positive">
+                        +12% this month
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ◉
+                </div>
+
+                <div>
+                    <p>Active Sessions</p>
+                    <h2>08</h2>
+                    <small class="positive">
+                        +4.8% this week
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+                    <p>Success Rate</p>
+                    <h2>98.4%</h2>
+                    <small class="positive">
+                        +2.1% this month
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon pink">
+                    ◇
+                </div>
+
+                <div>
+                    <p>Account Status</p>
+                    <h2>Active</h2>
+                    <small class="positive">
+                        Everything looks good
+                    </small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD GRID -->
+        <section class="dashboard-grid">
+
+            <!-- ACTIVITY -->
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Recent activity</h3>
+                        <p>
+                            Your latest account activity.
+                        </p>
+                    </div>
+
+                    <button
+                        class="small-button"
+                        type="button"
+                    >
+                        View all
+                    </button>
+
+                </div>
+
+
+                <div class="activity-list">
+
+                    <div class="activity">
+
+                        <div class="activity-icon purple">
+                            ✓
+                        </div>
+
+                        <div>
+                            <strong>
+                                Successful login
+                            </strong>
+
+                            <span>
+                                Just now
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity">
+
+                        <div class="activity-icon blue">
+                            +
+                        </div>
+
+                        <div>
+                            <strong>
+                                Account created
+                            </strong>
+
+                            <span>
+                                Today
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity">
+
+                        <div class="activity-icon green">
+                            ✓
+                        </div>
+
+                        <div>
+                            <strong>
+                                Security verification
+                            </strong>
+
+                            <span>
+                                Today
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity">
+
+                        <div class="activity-icon pink">
+                            ◉
+                        </div>
+
+                        <div>
+                            <strong>
+                                Profile updated
+                            </strong>
+
+                            <span>
+                                Yesterday
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACCOUNT -->
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Account</h3>
+                        <p>
+                            Your account information.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="account-profile">
+
+                    <div
+                        class="large-avatar"
+                        id="largeAvatar"
+                    >
+                        U
+                    </div>
+
+                    <h3 id="accountName">
+                        User
+                    </h3>
+
+                    <p id="accountEmail">
+                        user@example.com
+                    </p>
+
+                    <span class="status">
+                        ● Active account
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="edit-button"
+                    type="button"
+                >
+                    Edit profile
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- BANNER -->
+        <section class="welcome-banner">
+
+            <div>
+
+                <span class="banner-label">
+                    ARESX
+                </span>
+
+                <h2>
+                    Your account is ready.
+                </h2>
+
+                <p>
+                    Everything is secure and working properly.
+                    Explore your dashboard and manage your account.
+                </p>
+
+            </div>
+
+            <div class="banner-glow"></div>
+
+        </section>
+
+    </section>
+
+
+    <!-- =========================
+         ONLINE SYSTEM
+    ========================== -->
+    <section class="page-section" id="systemPage">
+
+        <div class="page-heading">
+
+            <p class="eyebrow">
+                SYSTEM
+            </p>
+
+            <h1>
+                Online System
+            </h1>
+
+            <p>
+                Monitor and manage your online system.
+            </p>
+
+        </div>
+
+
+        <div class="system-grid">
+
+            <div class="system-card">
+
+                <div class="system-icon green">
+                    ●
+                </div>
+
+                <h3>
+                    System Online
+                </h3>
+
+                <p>
+                    All systems are currently operational.
+                </p>
+
+                <span class="online-status">
+                    Online
+                </span>
+
+            </div>
+
+
+            <div class="system-card">
+
+                <div class="system-icon blue">
+                    ◉
+                </div>
+
+                <h3>
+                    Active Users
+                </h3>
+
+                <p>
+                    Users currently connected to the system.
+                </p>
+
+                <strong class="system-number">
+                    128
+                </strong>
+
+            </div>
+
+
+            <div class="system-card">
+
+                <div class="system-icon purple">
+                    ⚡
+                </div>
+
+                <h3>
+                    System Performance
+                </h3>
+
+                <p>
+                    Current system performance.
+                </p>
+
+                <strong class="system-number">
+                    98.4%
+                </strong>
+
             </div>
 
         </div>
 
-        <!-- Navigation -->
-        <nav>
-
-            <button class="nav-item active" data-page="overview" type="button">
-                <span>⌂</span>
-                <span>Home</span>
-            </button>
-
-            <button class="nav-item" data-page="system" type="button">
-                <span>◉</span>
-                <span>Online System</span>
-            </button>
-
-            <button class="nav-item" data-page="lib" type="button">
-                <span>▣</span>
-                <span>Online Lib</span>
-            </button>
-
-            <button class="nav-item" data-page="settings" type="button">
-                <span>⚙</span>
-                <span>Settings</span>
-            </button>
-
-        </nav>
-
-        <!-- Logout -->
-        <button class="logout-button" id="logoutButton" type="button">
-            <span>↪</span>
-            <span>Logout</span>
-        </button>
-
-    </aside>
+    </section>
 
 
-    <!-- Main -->
-    <main class="main" id="mainContent">
+    <!-- =========================
+         ONLINE LIB
+    ========================== -->
+    <section class="page-section" id="libPage">
 
-        <!-- HOME -->
-        <section class="page-section active" id="overviewPage">
+        <div class="page-heading">
 
-            <header class="topbar">
+            <p class="eyebrow">
+                LIBRARY
+            </p>
+
+            <h1>
+                Online Lib
+            </h1>
+
+            <p>
+                Access your available online library.
+            </p>
+
+        </div>
+
+
+        <div class="library-grid">
+
+            <div class="library-card">
+
+                <div class="library-icon purple">
+                    N
+                </div>
+
+                <h3>
+                    Resources
+                </h3>
+
+                <p>
+                    Browse available resources and files.
+                </p>
+
+                <button
+                    class="small-button"
+                    type="button"
+                >
+                    Open
+                </button>
+
+            </div>
+
+
+            <div class="library-card">
+
+                <div class="library-icon blue">
+                    C
+                </div>
+
+                <h3>
+                    Collections
+                </h3>
+
+                <p>
+                    Manage your online collections.
+                </p>
+
+                <button
+                    class="small-button"
+                    type="button"
+                >
+                    Open
+                </button>
+
+            </div>
+
+
+            <div class="library-card">
+
+                <div class="library-icon green">
+                    ✓
+                </div>
+
+                <h3>
+                    Downloads
+                </h3>
+
+                <p>
+                    View your available downloads.
+                </p>
+
+                <button
+                    class="small-button"
+                    type="button"
+                >
+                    Open
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SETTINGS
+    ========================== -->
+    <section class="page-section" id="settingsPage">
+
+        <div class="page-heading">
+
+            <p class="eyebrow">
+                SETTINGS
+            </p>
+
+            <h1>
+                Settings
+            </h1>
+
+            <p>
+                Manage your account preferences.
+            </p>
+
+        </div>
+
+
+        <div class="settings-card dashboard-card">
+
+            <div class="setting-row">
 
                 <div>
-                    <p class="eyebrow">OVERVIEW</p>
+                    <h3>
+                        Account information
+                    </h3>
 
-                    <h1>
-                        Welcome back,
-                        <span id="userName">User</span>
-                    </h1>
+                    <p>
+                        Update your personal information.
+                    </p>
                 </div>
 
-                <div class="profile">
+                <button
+                    class="small-button"
+                    type="button"
+                >
+                    Edit
+                </button>
 
-                    <div class="avatar" id="userAvatar">
-                        U
-                    </div>
+            </div>
 
-                    <div>
-                        <strong id="profileName">User</strong>
-                        <span id="profileEmail">user@example.com</span>
-                    </div>
 
-                </div>
-
-            </header>
-
-
-            <!-- Stats -->
-            <section class="stats">
-
-                <div class="stat-card">
-
-                    <div class="stat-icon purple">
-                        ◈
-                    </div>
-
-                    <div>
-                        <p>Total Projects</p>
-                        <h2>24</h2>
-                        <small class="positive">+12% this month</small>
-                    </div>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-icon blue">
-                        ◉
-                    </div>
-
-                    <div>
-                        <p>Active Sessions</p>
-                        <h2>08</h2>
-                        <small class="positive">+4.8% this week</small>
-                    </div>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-icon green">
-                        ✓
-                    </div>
-
-                    <div>
-                        <p>Success Rate</p>
-                        <h2>98.4%</h2>
-                        <small class="positive">+2.1% this month</small>
-                    </div>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-icon pink">
-                        ◇
-                    </div>
-
-                    <div>
-                        <p>Account Status</p>
-                        <h2>Active</h2>
-                        <small class="positive">Everything looks good</small>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- Dashboard Grid -->
-            <section class="dashboard-grid">
-
-                <!-- Activity -->
-                <div class="dashboard-card">
-
-                    <div class="card-header">
-
-                        <div>
-                            <h3>Recent activity</h3>
-                            <p>Your latest account activity.</p>
-                        </div>
-
-                        <button class="small-button" type="button">
-                            View all
-                        </button>
-
-                    </div>
-
-
-                    <div class="activity-list">
-
-                        <div class="activity">
-
-                            <div class="activity-icon purple">
-                                ✓
-                            </div>
-
-                            <div>
-                                <strong>Successful login</strong>
-                                <span>Just now</span>
-                            </div>
-
-                        </div>
-
-
-                        <div class="activity">
-
-                            <div class="activity-icon blue">
-                                +
-                            </div>
-
-                            <div>
-                                <strong>Account created</strong>
-                                <span>Today</span>
-                            </div>
-
-                        </div>
-
-
-                        <div class="activity">
-
-                            <div class="activity-icon green">
-                                ✓
-                            </div>
-
-                            <div>
-                                <strong>Security verification</strong>
-                                <span>Today</span>
-                            </div>
-
-                        </div>
-
-
-                        <div class="activity">
-
-                            <div class="activity-icon pink">
-                                ◉
-                            </div>
-
-                            <div>
-                                <strong>Profile updated</strong>
-                                <span>Yesterday</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Account -->
-                <div class="dashboard-card">
-
-                    <div class="card-header">
-
-                        <div>
-                            <h3>Account</h3>
-                            <p>Your account information.</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="account-profile">
-
-                        <div class="large-avatar" id="largeAvatar">
-                            U
-                        </div>
-
-                        <h3 id="accountName">User</h3>
-
-                        <p id="accountEmail">
-                            user@example.com
-                        </p>
-
-                        <span class="status">
-                            ● Active account
-                        </span>
-
-                    </div>
-
-
-                    <button class="edit-button" type="button">
-                        Edit profile
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            <!-- Banner -->
-            <section class="welcome-banner">
+            <div class="setting-row">
 
                 <div>
-
-                    <span class="banner-label">
-                        ARESX
-                    </span>
-
-                    <h2>
-                        Your account is ready.
-                    </h2>
+                    <h3>
+                        Email notifications
+                    </h3>
 
                     <p>
-                        Everything is secure and working properly.
-                        Explore your dashboard and manage your account.
+                        Manage your notification preferences.
                     </p>
-
                 </div>
 
-                <div class="banner-glow"></div>
+                <label class="switch">
 
-            </section>
+                    <input
+                        type="checkbox"
+                        checked
+                    >
 
-        </section>
+                    <span></span>
 
-
-        <!-- ONLINE SYSTEM -->
-        <section class="page-section" id="systemPage">
-
-            <div class="page-heading">
-
-                <p class="eyebrow">
-                    ADMIN
-                </p>
-
-                <h1>
-                    Online System
-                </h1>
-
-                <p>
-                    Monitor and manage your online system.
-                </p>
+                </label>
 
             </div>
 
 
-            <div class="system-grid">
+            <div class="setting-row">
 
-                <div class="system-card">
-
-                    <div class="system-icon green">
-                        ●
-                    </div>
-
-                    <h3>System Online</h3>
+                <div>
+                    <h3>
+                        Security
+                    </h3>
 
                     <p>
-                        All systems are currently operational.
+                        Your account security is enabled.
                     </p>
-
-                    <span class="online-status">
-                        Online
-                    </span>
-
                 </div>
 
-
-                <div class="system-card">
-
-                    <div class="system-icon blue">
-                        ◉
-                    </div>
-
-                    <h3>Active Users</h3>
-
-                    <p>
-                        Users currently connected to the system.
-                    </p>
-
-                    <strong class="system-number">
-                        128
-                    </strong>
-
-                </div>
-
-
-                <div class="system-card">
-
-                    <div class="system-icon purple">
-                        ⚡
-                    </div>
-
-                    <h3>System Performance</h3>
-
-                    <p>
-                        Current system performance.
-                    </p>
-
-                    <strong class="system-number">
-                        98.4%
-                    </strong>
-
-                </div>
+                <span class="security-status">
+                    Protected
+                </span>
 
             </div>
 
-        </section>
+        </div>
 
+    </section>
 
-        <!-- ONLINE LIB -->
-        <section class="page-section" id="libPage">
 
-            <div class="page-heading">
+    <!-- =========================
+         KEYGEN
+    ========================== -->
+    <section class="page-section" id="keygenPage">
 
-                <p class="eyebrow">
-                    ADMIN
-                </p>
+        <div class="page-heading">
 
-                <h1>
-                    Online Lib
-                </h1>
+            <p class="eyebrow">
+                ADMIN
+            </p>
 
-                <p>
-                    Access your available online library.
-                </p>
+            <h1>
+                Manage Keygen Links
+            </h1>
 
-            </div>
+            <p>
+                Manage your key generation links.
+            </p>
 
+        </div>
 
-            <div class="library-grid">
+        <div class="empty-card">
+            This section is ready for your keygen management interface.
+        </div>
 
-                <div class="library-card">
+    </section>
 
-                    <div class="library-icon purple">
-                        N
-                    </div>
 
-                    <h3>Resources</h3>
+    <!-- =========================
+         GAME SYSTEM
+    ========================== -->
+    <section class="page-section" id="gamesysPage">
 
-                    <p>
-                        Browse available resources and files.
-                    </p>
+        <div class="page-heading">
 
-                    <button class="small-button">
-                        Open
-                    </button>
+            <p class="eyebrow">
+                ADMIN
+            </p>
 
-                </div>
+            <h1>
+                Online System
+            </h1>
 
+            <p>
+                Administrative system controls.
+            </p>
 
-                <div class="library-card">
+        </div>
 
-                    <div class="library-icon blue">
-                        C
-                    </div>
+        <div class="empty-card">
+            Administrative system controls can be added here.
+        </div>
 
-                    <h3>Collections</h3>
+    </section>
 
-                    <p>
-                        Manage your online collections.
-                    </p>
 
-                    <button class="small-button">
-                        Open
-                    </button>
+    <!-- =========================
+         ONLINE LIB ADMIN
+    ========================== -->
+    <section class="page-section" id="onlinelibPage">
 
-                </div>
+        <div class="page-heading">
 
+            <p class="eyebrow">
+                ADMIN
+            </p>
 
-                <div class="library-card">
+            <h1>
+                Online LIB
+            </h1>
 
-                    <div class="library-icon green">
-                        ✓
-                    </div>
+            <p>
+                Administrative library controls.
+            </p>
 
-                    <h3>Downloads</h3>
+        </div>
 
-                    <p>
-                        View your available downloads.
-                    </p>
+        <div class="empty-card">
+            Administrative library controls can be added here.
+        </div>
 
-                    <button class="small-button">
-                        Open
-                    </button>
+    </section>
 
-                </div>
 
-            </div>
+    <!-- =========================
+         HACKING
+    ========================== -->
+    <section class="page-section" id="hackingPage">
 
-        </section>
+        <div class="page-heading">
 
+            <p class="eyebrow">
+                ADMIN
+            </p>
 
-        <!-- SETTINGS -->
-        <section class="page-section" id="settingsPage">
+            <h1>
+                Manage Hacking Attempt
+            </h1>
 
-            <div class="page-heading">
+            <p>
+                Review account security events.
+            </p>
 
-                <p class="eyebrow">
-                    SETTINGS
-                </p>
+        </div>
 
-                <h1>
-                    Settings
-                </h1>
+        <div class="empty-card">
+            Security monitoring interface.
+        </div>
 
-                <p>
-                    Manage your account preferences.
-                </p>
+    </section>
 
-            </div>
 
+    <!-- =========================
+         PRIVATE DASHBOARD
+    ========================== -->
+    <section class="page-section" id="privatePage">
 
-            <div class="settings-card dashboard-card">
+        <div class="page-heading">
 
-                <div class="setting-row">
+            <p class="eyebrow">
+                ADMIN
+            </p>
 
-                    <div>
-                        <h3>Account information</h3>
-                        <p>Update your personal information.</p>
-                    </div>
+            <h1>
+                Private Dashboard
+            </h1>
 
-                    <button class="small-button" type="button">
-                        Edit
-                    </button>
+            <p>
+                Private administrative dashboard.
+            </p>
 
-                </div>
+        </div>
 
+        <div class="empty-card">
+            Private dashboard content.
+        </div>
 
-                <div class="setting-row">
+    </section>
 
-                    <div>
-                        <h3>Email notifications</h3>
-                        <p>Manage your notification preferences.</p>
-                    </div>
 
-                    <label class="switch">
+    <!-- =========================
+         USERS
+    ========================== -->
+    <section class="page-section" id="usersPage">
 
-                        <input type="checkbox" checked>
+        <div class="page-heading">
 
-                        <span></span>
+            <p class="eyebrow">
+                ADMIN
+            </p>
 
-                    </label>
+            <h1>
+                Manage Users
+            </h1>
 
-                </div>
+            <p>
+                Manage registered users.
+            </p>
 
+        </div>
 
-                <div class="setting-row">
+        <div class="empty-card">
+            User management interface.
+        </div>
 
-                    <div>
-                        <h3>Security</h3>
-                        <p>Your account security is enabled.</p>
-                    </div>
+    </section>
 
-                    <span class="security-status">
-                        Protected
-                    </span>
 
-                </div>
+    <!-- =========================
+         REFERRAL
+    ========================== -->
+    <section class="page-section" id="referralPage">
 
-            </div>
+        <div class="page-heading">
 
-        </section>
+            <p class="eyebrow">
+                ADMIN
+            </p>
 
+            <h1>
+                Create Referral
+            </h1>
 
-        <footer>
-            © 2026 AresX. All rights reserved.
-        </footer>
+            <p>
+                Create and manage referral links.
+            </p>
 
-    </main>
+        </div>
 
+        <div class="empty-card">
+            Referral creation interface.
+        </div>
 
-    <script src="js/dashboard.js"></script>
+    </section>
+
+
+    <footer>
+        © 2026 AresX. All rights reserved.
+    </footer>
+
+</main>
+
+
+<script src="js/dashboard.js"></script>
+
 
 </body>
 </html>

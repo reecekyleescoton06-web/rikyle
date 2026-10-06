@@ -1,43 +1,101 @@
 "use strict";
 
-
 /* =========================================
    GET ELEMENTS
 ========================================= */
 
-const sidebar =
-    document.getElementById("sidebar");
+const sidebar = document.getElementById("sidebar");
+const menuButton = document.getElementById("menuButton");
+const menuOverlay = document.getElementById("menuOverlay");
+const mainContent = document.getElementById("mainContent");
+const logoutButton = document.getElementById("logoutButton");
 
-const menuButton =
-    document.getElementById("menuButton");
+const navItems = document.querySelectorAll(".nav-item");
 
-const menuOverlay =
-    document.getElementById("menuOverlay");
 
-const mainContent =
-    document.getElementById("mainContent");
-
-const logoutButton =
-    document.getElementById("logoutButton");
-
-const navItems =
-    document.querySelectorAll(".nav-item");
-
+/* =========================================
+   DASHBOARD PAGES
+========================================= */
 
 const pages = {
+    overview: document.getElementById("overviewPage"),
+    system: document.getElementById("systemPage"),
+    lib: document.getElementById("libPage"),
+    settings: document.getElementById("settingsPage")
+};
 
-    overview:
-        document.getElementById("overviewPage"),
 
-    analytics:
-        document.getElementById("analyticsPage"),
+/* =========================================
+   PAGE TITLES
+========================================= */
 
-    projects:
-        document.getElementById("projectsPage"),
+const pageTitles = {
 
-    settings:
-        document.getElementById("settingsPage")
+    overview: {
+        label: "OVERVIEW",
+        title: "Dashboard",
+        description: "Welcome to your AresX dashboard."
+    },
 
+    system: {
+        label: "SYSTEM",
+        title: "Online System",
+        description: "Monitor and manage your online system."
+    },
+
+    lib: {
+        label: "LIBRARY",
+        title: "Online Lib",
+        description: "Access your available online library."
+    },
+
+    settings: {
+        label: "SETTINGS",
+        title: "Settings",
+        description: "Manage your account preferences."
+    },
+
+    keygen: {
+        label: "KEYGEN",
+        title: "Manage Keygen Links",
+        description: "Create and manage your key generation links."
+    },
+
+    gamesys: {
+        label: "ADMIN",
+        title: "Online System",
+        description: "Manage the administrator online system."
+    },
+
+    onlinelib: {
+        label: "ADMIN",
+        title: "Online LIB",
+        description: "Manage the administrator online library."
+    },
+
+    hacking: {
+        label: "ADMIN",
+        title: "Manage Hacking Attempt",
+        description: "Monitor and manage security attempts."
+    },
+
+    private: {
+        label: "ADMIN",
+        title: "Private Dashboard",
+        description: "Access your private administrator dashboard."
+    },
+
+    users: {
+        label: "ADMIN",
+        title: "Manage Users",
+        description: "Manage registered dashboard users."
+    },
+
+    referral: {
+        label: "ADMIN",
+        title: "Create Referral",
+        description: "Create and manage referral links."
+    }
 };
 
 
@@ -48,27 +106,21 @@ const pages = {
 function getLoggedInUser() {
 
     const remembered =
-        localStorage.getItem(
-            "novaRememberedUser"
-        );
+        localStorage.getItem("novaRememberedUser");
 
     const session =
-        sessionStorage.getItem(
-            "novaSession"
-        );
+        sessionStorage.getItem("novaSession");
 
 
-    /* -----------------------------
+    /* ---------------------------------
        REMEMBERED LOGIN
-    ----------------------------- */
+    --------------------------------- */
 
     if (remembered) {
 
         try {
 
-            return JSON.parse(
-                remembered
-            );
+            return JSON.parse(remembered);
 
         } catch (error) {
 
@@ -80,23 +132,19 @@ function getLoggedInUser() {
             localStorage.removeItem(
                 "novaRememberedUser"
             );
-
         }
-
     }
 
 
-    /* -----------------------------
+    /* ---------------------------------
        NORMAL SESSION
-    ----------------------------- */
+    --------------------------------- */
 
     if (session) {
 
         try {
 
-            return JSON.parse(
-                session
-            );
+            return JSON.parse(session);
 
         } catch (error) {
 
@@ -108,19 +156,15 @@ function getLoggedInUser() {
             sessionStorage.removeItem(
                 "novaSession"
             );
-
         }
-
     }
 
 
     return null;
-
 }
 
 
-const user =
-    getLoggedInUser();
+const user = getLoggedInUser();
 
 
 /* =========================================
@@ -129,9 +173,7 @@ const user =
 
 if (!user) {
 
-    window.location.replace(
-        "index.html"
-    );
+    window.location.replace("index.html");
 
 }
 
@@ -142,111 +184,85 @@ if (!user) {
 
 if (user) {
 
+    const safeName =
+        typeof user.name === "string" &&
+        user.name.trim()
+            ? user.name.trim()
+            : "User";
+
+
+    const safeEmail =
+        typeof user.email === "string" &&
+        user.email.trim()
+            ? user.email.trim()
+            : "user@example.com";
+
+
     const firstLetter =
-        user.name
-            .charAt(0)
-            .toUpperCase();
+        safeName.charAt(0).toUpperCase();
 
 
     const userName =
-        document.getElementById(
-            "userName"
-        );
+        document.getElementById("userName");
 
     const profileName =
-        document.getElementById(
-            "profileName"
-        );
+        document.getElementById("profileName");
 
     const profileEmail =
-        document.getElementById(
-            "profileEmail"
-        );
+        document.getElementById("profileEmail");
 
     const accountName =
-        document.getElementById(
-            "accountName"
-        );
+        document.getElementById("accountName");
 
     const accountEmail =
-        document.getElementById(
-            "accountEmail"
-        );
+        document.getElementById("accountEmail");
 
     const userAvatar =
-        document.getElementById(
-            "userAvatar"
-        );
+        document.getElementById("userAvatar");
 
     const largeAvatar =
-        document.getElementById(
-            "largeAvatar"
-        );
+        document.getElementById("largeAvatar");
 
-
-    /* -----------------------------
-       WELCOME NAME
-    ----------------------------- */
 
     if (userName) {
 
         userName.textContent =
-            user.name.split(" ")[0];
+            safeName.split(" ")[0];
 
     }
 
-
-    /* -----------------------------
-       PROFILE NAME
-    ----------------------------- */
 
     if (profileName) {
 
         profileName.textContent =
-            user.name;
+            safeName;
 
     }
 
-
-    /* -----------------------------
-       PROFILE EMAIL
-    ----------------------------- */
 
     if (profileEmail) {
 
         profileEmail.textContent =
-            user.email;
+            safeEmail;
 
     }
 
-
-    /* -----------------------------
-       ACCOUNT NAME
-    ----------------------------- */
 
     if (accountName) {
 
         accountName.textContent =
-            user.name;
+            safeName;
 
     }
 
-
-    /* -----------------------------
-       ACCOUNT EMAIL
-    ----------------------------- */
 
     if (accountEmail) {
 
         accountEmail.textContent =
-            user.email;
+            safeEmail;
 
     }
 
-
-    /* -----------------------------
-       SMALL AVATAR
-    ----------------------------- */
 
     if (userAvatar) {
 
@@ -255,10 +271,6 @@ if (user) {
 
     }
 
-
-    /* -----------------------------
-       LARGE AVATAR
-    ----------------------------- */
 
     if (largeAvatar) {
 
@@ -271,7 +283,169 @@ if (user) {
 
 
 /* =========================================
-   MENU FUNCTIONS
+   CREATE MISSING PAGE
+========================================= */
+
+function createMissingPage(pageName) {
+
+    if (!mainContent) {
+        return null;
+    }
+
+
+    /* Already exists */
+
+    if (pages[pageName]) {
+        return pages[pageName];
+    }
+
+
+    const information =
+        pageTitles[pageName] || {
+            label: "ARES X",
+            title: pageName,
+            description: "Dashboard section."
+        };
+
+
+    const section =
+        document.createElement("section");
+
+
+    section.className =
+        "page-section";
+
+
+    section.id =
+        pageName + "Page";
+
+
+    section.innerHTML = `
+
+        <div class="page-heading">
+
+            <p class="eyebrow">
+                ${information.label}
+            </p>
+
+            <h1>
+                ${information.title}
+            </h1>
+
+            <p>
+                ${information.description}
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>
+                        ${information.title}
+                    </h3>
+
+                    <p>
+                        This section is ready to be connected.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div style="
+                padding: 45px 20px;
+                text-align: center;
+            ">
+
+                <div style="
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto 18px;
+                    display: grid;
+                    place-items: center;
+                    border-radius: 16px;
+                    background: rgba(99,102,241,.12);
+                    color: #a78bfa;
+                    font-size: 25px;
+                    border: 1px solid rgba(139,92,246,.18);
+                ">
+                    ✦
+                </div>
+
+                <h3 style="
+                    margin-bottom: 8px;
+                    font-size: 16px;
+                ">
+                    ${information.title}
+                </h3>
+
+                <p style="
+                    color: #94a3b8;
+                    font-size: 11px;
+                    line-height: 1.7;
+                ">
+                    ${information.description}
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    mainContent.insertBefore(
+        section,
+        mainContent.querySelector("footer")
+    );
+
+
+    pages[pageName] =
+        section;
+
+
+    return section;
+}
+
+
+/* =========================================
+   MENU SCROLL CONTROL
+========================================= */
+
+function updateBodyScroll() {
+
+    /*
+     * Only lock page scrolling while
+     * the mobile sidebar is open.
+     */
+
+    if (
+        sidebar &&
+        sidebar.classList.contains("open") &&
+        window.innerWidth <= 850
+    ) {
+
+        document.body.style.overflow =
+            "hidden";
+
+    } else {
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+}
+
+
+/* =========================================
+   OPEN MENU
 ========================================= */
 
 function openMenu() {
@@ -281,32 +455,21 @@ function openMenu() {
     }
 
 
-    sidebar.classList.add(
-        "open"
-    );
+    sidebar.classList.add("open");
 
-
-    menuButton.classList.add(
-        "active"
-    );
+    menuButton.classList.add("active");
 
 
     if (menuOverlay) {
 
-        menuOverlay.classList.add(
-            "active"
-        );
+        menuOverlay.classList.add("active");
 
     }
 
 
-    if (mainContent) {
-
-        document.body.classList.add(
-            "menu-open"
-        );
-
-    }
+    document.body.classList.add(
+        "menu-open"
+    );
 
 
     menuButton.setAttribute(
@@ -320,8 +483,15 @@ function openMenu() {
         "Close dashboard menu"
     );
 
+
+    updateBodyScroll();
+
 }
 
+
+/* =========================================
+   CLOSE MENU
+========================================= */
 
 function closeMenu() {
 
@@ -330,14 +500,9 @@ function closeMenu() {
     }
 
 
-    sidebar.classList.remove(
-        "open"
-    );
+    sidebar.classList.remove("open");
 
-
-    menuButton.classList.remove(
-        "active"
-    );
+    menuButton.classList.remove("active");
 
 
     if (menuOverlay) {
@@ -365,8 +530,15 @@ function closeMenu() {
         "Open dashboard menu"
     );
 
+
+    updateBodyScroll();
+
 }
 
+
+/* =========================================
+   TOGGLE MENU
+========================================= */
 
 function toggleMenu() {
 
@@ -376,9 +548,7 @@ function toggleMenu() {
 
 
     if (
-        sidebar.classList.contains(
-            "open"
-        )
+        sidebar.classList.contains("open")
     ) {
 
         closeMenu();
@@ -393,10 +563,22 @@ function toggleMenu() {
 
 
 /* =========================================
-   HAMBURGER BUTTON
+   HAMBURGER
 ========================================= */
 
 if (menuButton) {
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+
+    menuButton.setAttribute(
+        "aria-label",
+        "Open dashboard menu"
+    );
+
 
     menuButton.addEventListener(
         "click",
@@ -407,7 +589,7 @@ if (menuButton) {
 
 
 /* =========================================
-   DARK OVERLAY
+   OVERLAY
 ========================================= */
 
 if (menuOverlay) {
@@ -421,7 +603,7 @@ if (menuOverlay) {
 
 
 /* =========================================
-   CLOSE MENU WITH ESCAPE
+   ESCAPE
 ========================================= */
 
 document.addEventListener(
@@ -431,9 +613,7 @@ document.addEventListener(
         if (
             event.key === "Escape" &&
             sidebar &&
-            sidebar.classList.contains(
-                "open"
-            )
+            sidebar.classList.contains("open")
         ) {
 
             closeMenu();
@@ -445,14 +625,43 @@ document.addEventListener(
 
 
 /* =========================================
-   CHANGE DASHBOARD PAGE
+   SHOW PAGE
 ========================================= */
 
 function showPage(pageName) {
 
-    /* -----------------------------
-       Hide every page
-    ----------------------------- */
+    /*
+     * If the page does not exist in HTML,
+     * create it automatically.
+     */
+
+    let selectedPage =
+        pages[pageName];
+
+
+    if (!selectedPage) {
+
+        selectedPage =
+            createMissingPage(pageName);
+
+    }
+
+
+    if (!selectedPage) {
+
+        console.warn(
+            "Dashboard page could not be created:",
+            pageName
+        );
+
+        return;
+
+    }
+
+
+    /* ---------------------------------
+       Hide all pages
+    --------------------------------- */
 
     Object.values(pages).forEach(
         page => {
@@ -469,9 +678,9 @@ function showPage(pageName) {
     );
 
 
-    /* -----------------------------
-       Remove active menu state
-    ----------------------------- */
+    /* ---------------------------------
+       Remove active navigation
+    --------------------------------- */
 
     navItems.forEach(
         button => {
@@ -484,38 +693,18 @@ function showPage(pageName) {
     );
 
 
-    /* -----------------------------
-       Get selected page
-    ----------------------------- */
-
-    const selectedPage =
-        pages[pageName];
-
-
-    if (!selectedPage) {
-
-        console.warn(
-            "Dashboard page not found:",
-            pageName
-        );
-
-        return;
-
-    }
-
-
-    /* -----------------------------
+    /* ---------------------------------
        Show selected page
-    ----------------------------- */
+    --------------------------------- */
 
     selectedPage.classList.add(
         "active"
     );
 
 
-    /* -----------------------------
-       Activate selected button
-    ----------------------------- */
+    /* ---------------------------------
+       Activate selected navigation
+    --------------------------------- */
 
     const selectedButton =
         document.querySelector(
@@ -532,16 +721,16 @@ function showPage(pageName) {
     }
 
 
-    /* -----------------------------
-       Close menu
-    ----------------------------- */
+    /* ---------------------------------
+       Close mobile menu
+    --------------------------------- */
 
     closeMenu();
 
 
-    /* -----------------------------
-       Scroll to top
-    ----------------------------- */
+    /* ---------------------------------
+       Scroll dashboard to top
+    --------------------------------- */
 
     window.scrollTo({
         top: 0,
@@ -560,7 +749,10 @@ navItems.forEach(
 
         button.addEventListener(
             "click",
-            () => {
+            event => {
+
+                event.preventDefault();
+
 
                 const pageName =
                     button.dataset.page;
@@ -571,9 +763,7 @@ navItems.forEach(
                 }
 
 
-                showPage(
-                    pageName
-                );
+                showPage(pageName);
 
             }
         );
@@ -590,9 +780,10 @@ if (logoutButton) {
 
     logoutButton.addEventListener(
         "click",
-        () => {
+        event => {
 
-            /* Close menu first */
+            event.preventDefault();
+
 
             closeMenu();
 
@@ -604,14 +795,14 @@ if (logoutButton) {
             );
 
 
-            /* Remove normal session */
+            /* Remove current session */
 
             sessionStorage.removeItem(
                 "novaSession"
             );
 
 
-            /* Redirect to login */
+            /* Redirect */
 
             setTimeout(
                 () => {
@@ -631,12 +822,12 @@ if (logoutButton) {
 
 
 /* =========================================
-   VIEW ALL BUTTON
+   VIEW ALL
 ========================================= */
 
 const viewAllButton =
-    document.getElementById(
-        "viewAllButton"
+    document.querySelector(
+        ".card-header .small-button"
     );
 
 
@@ -644,11 +835,11 @@ if (viewAllButton) {
 
     viewAllButton.addEventListener(
         "click",
-        () => {
+        event => {
 
-            showPage(
-                "analytics"
-            );
+            event.preventDefault();
+
+            showPage("system");
 
         }
     );
@@ -657,12 +848,12 @@ if (viewAllButton) {
 
 
 /* =========================================
-   EDIT PROFILE BUTTON
+   EDIT PROFILE
 ========================================= */
 
 const editProfileButton =
-    document.getElementById(
-        "editProfileButton"
+    document.querySelector(
+        ".edit-button"
     );
 
 
@@ -670,11 +861,11 @@ if (editProfileButton) {
 
     editProfileButton.addEventListener(
         "click",
-        () => {
+        event => {
 
-            showPage(
-                "settings"
-            );
+            event.preventDefault();
+
+            showPage("settings");
 
         }
     );
@@ -683,7 +874,7 @@ if (editProfileButton) {
 
 
 /* =========================================
-   SETTINGS EDIT BUTTONS
+   SETTINGS BUTTONS
 ========================================= */
 
 const settingsEditButtons =
@@ -697,10 +888,42 @@ settingsEditButtons.forEach(
 
         button.addEventListener(
             "click",
-            () => {
+            event => {
+
+                event.preventDefault();
 
                 alert(
                     "Profile editing can be connected here."
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   LIBRARY BUTTONS
+========================================= */
+
+const libraryButtons =
+    document.querySelectorAll(
+        ".library-card .small-button"
+    );
+
+
+libraryButtons.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+
+                alert(
+                    "Library section is ready to be connected."
                 );
 
             }
@@ -719,50 +942,25 @@ window.addEventListener(
     () => {
 
         /*
-         * On desktop, reset the
-         * mobile menu state.
+         * If desktop mode is reached,
+         * close the mobile menu.
          */
 
-        if (
-            window.innerWidth > 850
-        ) {
+        if (window.innerWidth > 850) {
 
             closeMenu();
 
         }
+
+        updateBodyScroll();
 
     }
 );
 
 
 /* =========================================
-   PREVENT BACKGROUND SCROLL
-   WHEN MENU IS OPEN
+   SIDEBAR OBSERVER
 ========================================= */
-
-function updateBodyScroll() {
-
-    if (
-        sidebar &&
-        sidebar.classList.contains(
-            "open"
-        )
-    ) {
-
-        document.body.style.overflow =
-            "hidden";
-
-    } else {
-
-        document.body.style.overflow =
-            "";
-
-    }
-
-}
-
-
-/* Watch menu changes */
 
 if (sidebar) {
 
@@ -776,9 +974,7 @@ if (sidebar) {
         sidebar,
         {
             attributes: true,
-            attributeFilter: [
-                "class"
-            ]
+            attributeFilter: ["class"]
         }
     );
 
@@ -789,6 +985,11 @@ if (sidebar) {
    INITIAL DASHBOARD
 ========================================= */
 
-showPage(
-    "overview"
-);
+showPage("overview");
+
+
+/* =========================================
+   INITIAL SCROLL STATE
+========================================= */
+
+updateBodyScroll();
